@@ -116,8 +116,6 @@
 				  	
 				    <li><a href="/categories/ACM/" class="animsition-link">ACM<small>(1)</small></a></li>
 				    
-				    <li><a href="/categories/ACM-ICPC/" class="animsition-link">ACM/ICPC<small>(0)</small></a></li>
-				    
 				    <li><a href="/categories/Computer-Science/" class="animsition-link">Computer Science<small>(1)</small></a></li>
 				    
 				    <li><a href="/categories/Sound-Horizon/Resources/" class="animsition-link">Resources<small>(1)</small></a></li>
@@ -345,7 +343,7 @@
 <p>针对这一点，我们可以在heap的最前面开一个这样的池，管理这些碎片。</p>
 <h2 id="Some-Tricks"><a href="#Some-Tricks" class="headerlink" title="Some Tricks"></a>Some Tricks</h2><h4 id="Trick-1"><a href="#Trick-1" class="headerlink" title="Trick 1"></a>Trick 1</h4><p>writeup中提到：堆的大小不会超过 $2^{32}$ 字节。</p>
 <p>尽管 x86-64 机器下指针的空间是 8 字节，但我们完全可以只记录4字节的偏移量完成寻址。</p>
-<h4 id="Trick-2"><a href="#Trick-2" class="headerlink" title="Trick 2"></a>Trick 2</h4><p>一个 thou 的瓶颈是系统调用。感谢当初sy菊苣提醒:）</p>
+<h4 id="Trick-2"><a href="#Trick-2" class="headerlink" title="Trick 2"></a>Trick 2</h4><p>一个 thou 的瓶颈是系统调用。感谢当初sy2006菊苣提醒:）</p>
 <p>pku 服务器的主频非常低，提交到服务器上时系统调用简直慢到怀疑人生。</p>
 <ul>
 <li>一个优化：每次申请空间时，直接sbrk一大块，以减少系统调用次数。<ul>
