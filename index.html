@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>アイス·セビリア</title>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><title>アイス·セビリア</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -80,12 +80,12 @@
   
 
   
-  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <!--
 <body class="home-template">
--->
+<!-- hexo-inject:begin --><!-- hexo-inject:end -->-->
 <body id="index" class="lightnav animsition">
 
       <!-- ============================ Off-canvas navigation =========================== -->
@@ -114,6 +114,12 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
+				    <li><a href="/categories/ACM/" class="animsition-link">ACM<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/ACM-ICPC/" class="animsition-link">ACM/ICPC<small>(0)</small></a></li>
+				    
+				    <li><a href="/categories/Computer-Science/" class="animsition-link">Computer Science<small>(1)</small></a></li>
+				    
 				    <li><a href="/categories/Sound-Horizon/Resources/" class="animsition-link">Resources<small>(1)</small></a></li>
 				    
 				    <li><a href="/categories/Review/" class="animsition-link">Review<small>(1)</small></a></li>
@@ -231,6 +237,71 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
+                    <h3><a href="/2018/05/28/pkucampus2018/">Pku Campus 2018 Solution</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-05-28T00:00:00.000Z" itemprop="datePublished">
+          2018-05-28
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        Preface2018年北京大学acm校赛非正式意识流题解。排版和公式显示暂时有点问题，等有空的时候再回来处理一下(facepalm
+SolutionA列出线性规划式子，转为对偶型。观察对偶型的线性规划式子，发现这是一个差分约束系统问题。于是就可以用最短路求解。
+0 .. n 共 n+1 个点源点 vs = 0 终点 vt = n - 6连边(i+1 , i) 边权 = 0(max(i - 7, 0), i) 边权 = W[i] （W为
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/05/28/pkucampus2018/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/12/28/How-to-get-full-points-on-malloc-lab/">How to get full points on malloc lab</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-12-28T10:00:00.000Z" itemprop="datePublished">
+          2016-12-28
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        Preface原本是受人所托，回来填坑。另一方面，也是想想这些事情，如果不赶紧记下来，将来就再也没办法找到了。这么一来，我这样恋旧的人大概会难过的吧。
+——不然鬼知道这个原本定位慵懒小清新（?..）轻松日常的Blog，怎么会笔锋一转，写起了令人胃痛的malloc lab……
+好啦好啦，接下来就开始正文吧
+Introduction to Computer SystemsIntroduction to Computer Systems(IC
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/12/28/How-to-get-full-points-on-malloc-lab/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
                     <h3><a href="/2016/07/05/Review-of-Psyche/">Review of Psyche</a></h3>
                     <span>
                         <span class="post-meta">
@@ -299,37 +370,6 @@
                     
                     <p class="pull-right readMore">
                         <a href="/2016/06/15/Yoiyami-no-Basshoumono/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/05/22/hello-world/">Hello World</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-05-22T06:34:59.600Z" itemprop="datePublished">
-          2016-05-22
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new p
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/05/22/hello-world/">Read More...</a>
                     </p>
                     
                 </div>
@@ -415,7 +455,7 @@ Quick StartCreate a new p
         directionNav: true
       });
     });
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>
