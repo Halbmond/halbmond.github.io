@@ -323,7 +323,7 @@
                 
               
 
-              <time title="Created: 2018-07-06 14:30:00 / Modified: 15:47:00" itemprop="dateCreated datePublished" datetime="2018-07-06T14:30:00+08:00">2018-07-06</time>
+              <time title="Created: 2018-07-06 14:30:00 / Modified: 18:26:31" itemprop="dateCreated datePublished" datetime="2018-07-06T14:30:00+08:00">2018-07-06</time>
             
 
             
@@ -381,47 +381,15 @@
       
         
           
-            <h2 id="What’s-R2"><a href="#What’s-R2" class="headerlink" title="What’s R2?"></a>What’s R2?</h2><p>The r2 robot, which is an acronym for <em>Robonaut 2</em>, is a dexterous humanoid robot created by NASA, with the goal of it aiding humans in space (Robonaut 2 is just an upgrade from its predecessor, the Robonaut). The robot was created to ressemble as close as a human (with a head, hands, fingers, etc), it will be used to expand our ability for construction and discovery.</p>
-<p>See <a href="https://github.com/Halbmond/r2_sim/blob/master/NASA-R2-poster.pdf" target="_blank" rel="noopener">NASA-R2-poster.pdf</a> for details.</p>
-<h2 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h2><p><a href="http://ihalbmond.com/2018/07/06/Simulation-of-NASA-Robonaut-2/" target="_blank" rel="noopener">Blog post</a><br><a href="https://github.com/Halbmond/r2_sim/" target="_blank" rel="noopener">Github repo</a><br><a href="https://youtu.be/ehWuZweiUi0" target="_blank" rel="noopener">Youtube | NASA R2 (Robonaut 2) Robot Simulation in gazebo Step 1 | Humanoid mime
-</a><br><a href="https://youtu.be/A-b1OpHdZtU" target="_blank" rel="noopener">Youtube | NASA R2 (Robonaut 2) Robot Simulation in gazebo Step 2 | Humanoid arm gesture</a><br><a href="https://youtu.be/EZ8wc5KRCTs" target="_blank" rel="noopener">Youtube | NASA R2 (Robonaut 2) Robot Simulation in gazebo Step 3 | Humanoid playing chess
-</a></p>
-<h2 id="Preview"><a href="#Preview" class="headerlink" title="Preview"></a>Preview</h2><p>See <a href="https://github.com/Halbmond/r2_sim/blob/master/video" target="_blank" rel="noopener">r2_sim/video/</a>  for details.</p>
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>install r2 gazebo model and r2 controler<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/r2_sim/src</span><br><span class="line">git clone -b indigo https://bitbucket.org/nasa_ros_pkg/deprecated_nasa_r2_simulator.git</span><br><span class="line">git clone -b indigo https://bitbucket.org/nasa_ros_pkg/deprecated_nasa_r2_common.git</span><br><span class="line">cd ~/r2_sim</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure></p>
-<h2 id="start"><a href="#start" class="headerlink" title="start"></a>start</h2><p>在simulator中载入r2模型，并启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/r2_sim</span><br><span class="line">. devel/setup.bash</span><br><span class="line">roslaunch r2_gazebo r2_gazebo.launch</span><br></pre></td></tr></table></figure>
-<p><img src="../images/Simulation-of-NASA-Robonaut-2/r2_gazebo.png" alt="r2_gazebo"></p>
-<p>此时，在终端输入<code>rqt_graph</code> 显示如下：</p>
-<p><img src="../images/Simulation-of-NASA-Robonaut-2/r2.svg" alt="r2"></p>
-<p>这里，节点robot_state_publisher的作用是进行前向运动学计算，也就是说，它使用R2的几何描述和它的关节状态向量持续地计算并更新机器人上的所有坐标系。这种操作到标准ros实现是不依赖于机器人的，直接启动它，它就能为R2做正确到事情。</p>
-<p>接下来，启动moveit：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/r2_sim</span><br><span class="line">. devel/setup.bash</span><br><span class="line">roslaunch r2_moveit_config move_group.launch</span><br></pre></td></tr></table></figure>
-<p>此时，在终端输入<code>rqt_graph</code> 显示如下：</p>
-<p><img src="../images/Simulation-of-NASA-Robonaut-2/r2_move_group.svg" alt="r2_move_group"></p>
-<h2 id="Simulation-of-NASA-Robonaut-2"><a href="#Simulation-of-NASA-Robonaut-2" class="headerlink" title="Simulation of NASA Robonaut 2"></a>Simulation of NASA Robonaut 2</h2><p>The following codes are available in <code>my_r2</code> package.</p>
-<h3 id="让R2随机挥动手臂"><a href="#让R2随机挥动手臂" class="headerlink" title="让R2随机挥动手臂"></a>让R2随机挥动手臂</h3><p>运行<code>r2_mime.py</code>，利用moveit运动规划系统让R2随机挥动手臂</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">r2_mime.py</span><br><span class="line"></span><br><span class="line">#!/usr/bin/env python</span><br><span class="line">import sys, rospy, tf, moveit_commander, random</span><br><span class="line">from geometry_msgs.msg import Pose, Point, Quaternion</span><br><span class="line"></span><br><span class="line">orient = [Quaternion(*tf.transformations.quaternion_from_euler(3.14, -1.5, -1.57)),</span><br><span class="line">          Quaternion(*tf.transformations.quaternion_from_euler(3.14, -1.5, -1.57))] # &lt;1&gt;</span><br><span class="line">pose = [Pose(Point( 0.5, -0.5, 1.3), orient[0]),</span><br><span class="line">        Pose(Point(-0.5, -0.5, 1.3), orient[1])] # &lt;2&gt;</span><br><span class="line">moveit_commander.roscpp_initialize(sys.argv) # &lt;3&gt;</span><br><span class="line">rospy.init_node(&apos;r2_wave_arm&apos;,anonymous=True)</span><br><span class="line">group = [moveit_commander.MoveGroupCommander(&quot;left_arm&quot;),</span><br><span class="line">         moveit_commander.MoveGroupCommander(&quot;right_arm&quot;)]</span><br><span class="line"># now, wave arms around randomly </span><br><span class="line">while not rospy.is_shutdown():</span><br><span class="line">  pose[0].position.x =  0.5 + random.uniform(-0.1, 0.1)</span><br><span class="line">  pose[1].position.x = -0.5 + random.uniform(-0.1, 0.1)</span><br><span class="line">  for side in [0,1]:</span><br><span class="line">    pose[side].position.z =  1.5 + random.uniform(-0.1, 0.1)</span><br><span class="line">    group[side].set_pose_target(pose[side])</span><br><span class="line">    group[side].go(True)</span><br><span class="line"></span><br><span class="line">moveit_commander.roscpp_shutdown()</span><br></pre></td></tr></table></figure>
-<p><img src="../images/Simulation-of-NASA-Robonaut-2/r2_mime_screenshot.jpg" alt="r2_mime_screenshot"></p>
-<p>视频传送门：<a href="https://youtu.be/ehWuZweiUi0" target="_blank" rel="noopener">Youtube | NASA R2 (Robonaut 2) Robot Simulation in gazebo Step 1 | Humanoid mime
-</a></p>
-<h3 id="在棋盘上方移动R2的手臂"><a href="#在棋盘上方移动R2的手臂" class="headerlink" title="在棋盘上方移动R2的手臂"></a>在棋盘上方移动R2的手臂</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line">import sys, rospy, tf, moveit_commander, random</span><br><span class="line">from geometry_msgs.msg import Pose, Point, Quaternion</span><br><span class="line"></span><br><span class="line">class R2ChessboardWrapper:</span><br><span class="line">  def __init__(self):</span><br><span class="line">    self.left_arm = moveit_commander.MoveGroupCommander(&quot;left_arm&quot;)</span><br><span class="line"></span><br><span class="line">  def setPose(self, x, y, z, phi, theta, psi):</span><br><span class="line">    orient = \</span><br><span class="line">      Quaternion(*tf.transformations.quaternion_from_euler(phi, theta, psi))</span><br><span class="line">    pose = Pose(Point(x, y, z), orient)</span><br><span class="line">    self.left_arm.set_pose_target(pose)</span><br><span class="line">    self.left_arm.go(True)</span><br><span class="line"></span><br><span class="line">  def setSquare(self, square, height_above_board):</span><br><span class="line">    if len(square) != 2 or not square[1].isdigit():</span><br><span class="line">      raise ValueError(</span><br><span class="line">        &quot;expected a chess rank and file like &apos;b3&apos; but found %s instead&quot; %</span><br><span class="line">        square)</span><br><span class="line">    rank_y = -0.3 - 0.05 * (ord(square[0]) - ord(&apos;a&apos;))</span><br><span class="line">    file_x =  0.5 - 0.05 * int(square[1])</span><br><span class="line">    z = float(height_above_board) + 1.0</span><br><span class="line">    self.setPose(file_x, rank_y, z, 3.14, 0.3, -1.57)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">  moveit_commander.roscpp_initialize(sys.argv)</span><br><span class="line">  rospy.init_node(&apos;r2_chessboard_cli&apos;)</span><br><span class="line">  argv = rospy.myargv(argv=sys.argv) # filter out any arguments used by ROS</span><br><span class="line">  if len(argv) != 3:</span><br><span class="line">    print &quot;usage: r2_chessboard.py square height&quot;</span><br><span class="line">    sys.exit(1)</span><br><span class="line">  r2w = R2ChessboardWrapper()</span><br><span class="line">  r2w.setSquare(*argv[1:])</span><br><span class="line">  moveit_commander.roscpp_shutdown()</span><br></pre></td></tr></table></figure>
-<p>运行 r2_chessboard_cli.py，将r2的手臂移动到棋盘b3位置上4厘米处：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./r2_chessboard_cli.py b3 0.04</span><br></pre></td></tr></table></figure></p>
-<p><img src="../images/Simulation-of-NASA-Robonaut-2/r2_looking_at_chessboard.jpg" alt="r2_looking_at_chessboard"></p>
-<h3 id="为R2定义下棋动作"><a href="#为R2定义下棋动作" class="headerlink" title="为R2定义下棋动作"></a>为R2定义下棋动作</h3><p>定义手臂的三个状态：打开，预抓取，抓取：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line">import sys, rospy, tf, moveit_commander, random</span><br><span class="line">from geometry_msgs.msg import Pose, Point, Quaternion</span><br><span class="line"></span><br><span class="line">class R2Hand:</span><br><span class="line">  def __init__(self):</span><br><span class="line">    self.left_hand = moveit_commander.MoveGroupCommander(&quot;left_hand&quot;)</span><br><span class="line"></span><br><span class="line">  def setGrasp(self, state):</span><br><span class="line">    if state == &quot;pre-pinch&quot;:</span><br><span class="line">      vec = [ 0.3, 0, 1.57, 0,  # index</span><br><span class="line">              -0.1, 0, 1.57, 0, # middle</span><br><span class="line">              0, 0, 0,          # ring</span><br><span class="line">              0, 0, 0,          # pinkie</span><br><span class="line">              0, 1.1, 0, 0]       # thumb</span><br><span class="line">    elif state == &quot;pinch&quot;:</span><br><span class="line">      vec = [ -0.1, 0, 1.57, 0,</span><br><span class="line">              0, 0, 1.57, 0,</span><br><span class="line">              0, 0, 0,</span><br><span class="line">              0, 0, 0,</span><br><span class="line">              0, 1.1, 0, 0]</span><br><span class="line">    elif state == &quot;open&quot;:</span><br><span class="line">      vec = [0] * 18</span><br><span class="line">    else:</span><br><span class="line">      raise ValueError(&quot;unknown hand state: %s&quot; % state)</span><br><span class="line">    self.left_hand.set_joint_value_target(vec)</span><br><span class="line">    self.left_hand.go(True)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">  moveit_commander.roscpp_initialize(sys.argv)</span><br><span class="line">  rospy.init_node(&apos;r2_hand&apos;)</span><br><span class="line">  argv = rospy.myargv(argv=sys.argv) # filter out any arguments used by ROS</span><br><span class="line">  if len(argv) != 2:</span><br><span class="line">    print &quot;usage: r2_hand.py STATE&quot;</span><br><span class="line">    sys.exit(1)</span><br><span class="line">  r2w = R2Hand()</span><br><span class="line">  r2w.setGrasp(argv[1])</span><br></pre></td></tr></table></figure>
-<p>运行r2_hand.py，进入预抓取状态：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./r2_hand.py pre-pinch</span><br></pre></td></tr></table></figure></p>
-<p><img src="../images/Simulation-of-NASA-Robonaut-2/pre-pinch.jpg" alt="pre-pinch"></p>
-<p>运行r2_hand.py，进入抓取状态：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./r2_hand.py pinch</span><br></pre></td></tr></table></figure></p>
-<p><img src="../images/Simulation-of-NASA-Robonaut-2/pinch.jpg" alt="pinch"></p>
-<p>视频传送门：<a href="https://youtu.be/A-b1OpHdZtU" target="_blank" rel="noopener">Youtube | NASA R2 (Robonaut 2) Robot Simulation in gazebo Step 2 | Humanoid arm gesture</a></p>
-<h3 id="让R2在棋盘上下棋"><a href="#让R2在棋盘上下棋" class="headerlink" title="让R2在棋盘上下棋"></a>让R2在棋盘上下棋</h3><p>载入/重置棋盘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./spawn_chessboard</span><br></pre></td></tr></table></figure></p>
-<p>历史上的对局被记录成pgn格式。<br>安装第三方的pgn 文件解释器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install pgnparser</span><br></pre></td></tr></table></figure></p>
-<p>运行spawn_chessboard.py，载入对局文件 morgan_defeated_lan.pgn，开始对局：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./spawn_chessboard.py</span><br></pre></td></tr></table></figure></p>
-<p><img src="../images/Simulation-of-NASA-Robonaut-2/r2_chessmaster.jpg" alt="r2_chessmaster"></p>
-<p>视频传送门：<a href="https://youtu.be/EZ8wc5KRCTs" target="_blank" rel="noopener">Youtube | NASA R2 (Robonaut 2) Robot Simulation in gazebo Step 3 | Humanoid playing chess
-</a></p>
-
-          
+          What is R2?The r2 robot, which is an acronym for Robonaut 2, is a dexterous humanoid robot created by NASA, with the goal of it aiding humans in space
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/06/Simulation-of-NASA-Robonaut-2/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -589,26 +557,16 @@
       
         
           
-            <h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><p>2018年北京大学acm校赛非正式意识流题解。</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h4 id="A"><a href="#A" class="headerlink" title="A"></a>A</h4><p>列出线性规划式子，转为对偶型。<br>观察对偶型的线性规划式子，发现这是一个差分约束系统问题。<br>于是就可以用最短路求解。因为该图的特殊性，这种做法的时间复杂度为$O(N)$<br>事实上，我们可以证明，每一天要么花费$0$小时，要么花费$7$小时，然后直接DP或贪心即可。</p>
-<h4 id="B"><a href="#B" class="headerlink" title="B"></a>B</h4><p>设郭神的初始资金为$1$元，$f(i)$表示恰好在第$i$天卖出时可获得资金的期望，$g(i)$表示恰好在第$i$天买入时所得份额数的期望。</p>
-<script type="math/tex; mode=display">f(0)=1</script><script type="math/tex; mode=display">g(i)=\sum_{j=0}^{i-1} \frac{1}{n-j} * f(j) * \frac{1}{V_i}</script><script type="math/tex; mode=display">f(i)=\sum_{j=1}^{i-1} \frac{1}{n-j} * g(j) * V_i * r_{i-j}</script><p>对所求式子进行变形，发现数列$\{g(i)*V_i\}$为数列$\{f(i)/(n-i)\}$的前缀和，故$g(i)$可在常数时间求出。</p>
-<p>对于$f$，可以使用分治。其中，计算区间$[l,r]$时，$[l,m]$对$[m+1,r]$的贡献可通过数列$\{g(i)/(n-i)\}$与${r_i}$的卷积进行计算。<br>在分治过程中用FFT求卷积，需要进行常数优化以保证不会超时。</p>
-<p>总时间复杂度$O(Nlog^2N)$</p>
-<h4 id="C"><a href="#C" class="headerlink" title="C"></a>C</h4><p>记文档长度为$N$。直接KMP会超时，因为最多会进行$O(N)$次替换，每次替换最大长度$200$。<br>对$S$串构造KMP自动机，并预处理自动机每个节点插入$T$串任意一段后到达的节点。<br>插入$T$串过程中可能会再次匹配$S$，这种情况下，预处理出回退多少个节点。<br>而后不断处理文档，遇到要替换时，回退$len(S)$个节点后根据预处理结果处理插入$T$。<br>总时间复杂度$O(N+ST^2)$</p>
-<h4 id="D"><a href="#D" class="headerlink" title="D"></a>D</h4><p>预处理计算出字符串两两之间的编辑距离。所有字符串为节点，字符<br>串的编辑距离为节点之间的边权，构成一个无向带权完全图。将所有边从<br>小到大排序，用Kruskal算法求最小生成树。每增加一条边时，都会合并两<br>个类，这时，只需检查合并后的类是否满足条件：这一类的字符串两两之<br>间的编辑距离严格小于这一类的字符串与其他类中的字符串之间的编辑距<br>离。将类$G$划分成若干(&gt;=1)个子类，记满足条件的方案总数为$F(G)$。若<br>不满足条件，由乘法原理，合并后的类方案总数为</p>
-<script type="math/tex; mode=display">F(G1 \cup G2) = F(G1) * F(G2)</script><p>若满足条件，则新增了1种方案：也就是不对其作任何划分。合并后的类方<br>案总数为</p>
-<script type="math/tex; mode=display">F(G1 \cup G2) = F(G1) * F(G2) + 1</script><h4 id="E"><a href="#E" class="headerlink" title="E"></a>E</h4><p><img src="/images/pkucampus2018/pkucampus2018E.png" alt="Rank"><br>全都是直角。<br>奇数个点：<br>把$n-1$的答案最右边的角上剪一个角，最优解为$n-2$个直角。<br>多边形内角和为$180(n-2)$，$90$度角只能为$90$或$270$度，若有$n$个直角，假设$x$个$90$度，则</p>
-<script type="math/tex; mode=display">180(n-2)=90x+270(n-x)</script><script type="math/tex; mode=display">n-2x=-4</script><p>与$n$为奇数矛盾；<br>若有$n-1$个直角，则剩余的那个角一定是$90$的倍数，且既不是$90$也不是$270$，那只能是$180$或$360$，都与题意矛盾。</p>
-<h4 id="F"><a href="#F" class="headerlink" title="F"></a>F</h4><p>考虑$f[i]$恒等于$i+1$的情况，可以证明方案总是为$(n+1)^{n-1}$。<br>证明：拓展一个位置$n+1$，令$f[n+1]=1$。<br>这样构成了$n+1$的环，问题等价于放$n$个取值为$[1,n+1]$的数，并且$n+1$位置上没有数。<br>由对称性知答案为$\frac{(n+1)^n}{n+1}=(n+1)^{n-1}$。<br>把原问题拆成若干条链，利用乘法原理计算总方案数即可。</p>
-<h4 id="G"><a href="#G" class="headerlink" title="G"></a>G</h4><p>先只考虑 $S[L, R]$,实质等价于求出由$X_i$($i=L…R$)组成的向量组 张成的子空间$W$的维度 $dimW$, 答案即为 $p^{dimW}$ 。<br>求解子空间的维度可以转换为维护子空间的基的问题,于是,可以通过类似高斯消元的方法,动态构造一个向量组的基:<br>依次向当前基中添加向量,记 $F[i]$ 为最大的非零分量下标为第 $i$ 个分量的向量。</p>
-<p>对于待添加向量 $X_k$ ,从第一个分量开始枚举,如果 $X_k$ 的第 $i$ 个分量非零,则通过减去$F [i]$ 的若干倍消去这一分量,如果 $F [i] $为空,则证明当前待添加分量与现有基线性无关,可以并入基中。<br>重复此过程,可获得向量组的一组基。求基时间复杂度 $O(d^3)$。<br>接下来分析如何快速得到向量序列区间上的一组基:当没有修改操作时,可以采用分块算法,每次合并至多 $O(sqrt{N})$ 组基:合并方式为将基向量数量较少的一组基暴力添加至另一组基里即可,时间复杂度$O(d^3 )$。<br>故分块算法的初始化复杂度为 $O(d^2 N)$,询问时间复杂度为 $O(d^3\sqrt{N})$。<br>考虑用线段树维护子区间上的基,逐层暴力合并基即可。由于长度为 $N$ 的线段树<br>至多 $2N$ 个子区间,所以建树复杂度为 $O(d^2 N)$,询问时间复杂度为 $O(d^3logN)$。<br>题目中询问的是Synchronicity 值, 进行一些推导: 假设 $A$,$B$ 是两个子空间,<br>$|A \oplus B| = p^{dimA} + p^{dimB} - 2 p^{dim(A \cap B)}$ 。由维度公式可知 $dim(A \cap B) = dimA + dimB - dim(A + B)$。<br>而两个子空间之和的维度等价于求解两组基的并,依旧可以采用直接合并基解决。<br>修改操作只需要对线段树上某条路径的所有节点进行基合并操作即可,时间复杂度<br>$O(d^3 logN)$。线段树实现不好可能会超时。</p>
-<h4 id="H"><a href="#H" class="headerlink" title="H"></a>H</h4><p>求最大质因子$X$，输出$2147483647/X$即可。</p>
-<h4 id="I"><a href="#I" class="headerlink" title="I"></a>I</h4><p>设所填的最大正整数为$k$。<br>求一种填充方案等价于：求出$n$个集合$S_1,S_2,…,S_n$，使得$S_i$都是${1,2,3,…,k}$的子集，且任意$i≠j$，$S_j$都不是$S_i$的子集。<br>必要性：如果存在一种符合规则的方案，将第i列的所有数字构成集合$S_i$。对于第i行第j列的数字$x$，有$x∈S_j$，且第$i$列没有$x$，即$x$不属于$S_i$，所以有$S_j$不是$S_i$的子集。<br>充分性：方阵的第$i$行第$j$列填上集合$(S_j / S_i)$中的任意一个数字。<br>对于第$i$行第$j$列的数字$x$，显然第$i$列没有数字$x$，第$j$行也没有数字$x$（反证，如果第$j$行第$p$列有数字$x$，则说明$x∈(S_p / S_j)$，然而$x∈S_j$，产生矛盾）。<br>现要最小化$k$，即取最小的k使得$C(k, [k / 2])&gt;=n$。</p>
-<h4 id="J"><a href="#J" class="headerlink" title="J"></a>J</h4><p>设$N$,$d$的答案为$f(N,d)$，注意到$f$关于$N$是积性函数，问题化作求解$f(p^n,d)$。<br>注意$p=2$与$p&gt;2$时，需要分别讨论。<br>$p&gt;2$时，$f(p^n,d)$的答案与$p%4$、$d$有关。<br>$p=2$时，$f(p^n,d)$的答案只与$d$有关。</p>
-<h4 id="K"><a href="#K" class="headerlink" title="K"></a>K</h4><p>本题给定了有限种操作，我们考虑设计一些状态并确定状态之间的转移关系，然后可以通过两步之间的转移矩阵应用快速幂矩阵乘法得到$T$次的转移矩阵。<br>下面我们来研究在上述状态下的转移情况,我们用转移矩阵$A[i][j]$表示从状态i到状态j的可能操作数:<br>对于状态$0$,由于我们要求的是第一次达到目标的次数,所以对于在规定次数之前时刻,如果已经达到目标,则这样的结果应该被排除,所以$A[0][j]=0$。<br>对于操作 1 、 2 ,可以将任意一条边变为与之前不同的状态(开或关),那么处于状态i的任意一种显示屏形式,可通过操作 1 、 2 改变其与目标不同的i条边中任意一条变为状态$i-1$,共有$i$种选择;同样的可以通过改变与目标相同的$N-i$条边(设 $N$ 为总边数)中的任意一条变为状态$i+1$(对于边界情况如i=N时自然不会变到$i=N+1$) ,共有$N-i$种选择。<br>对于操作 3 、 4 、 5 ,首先,我们能发现这三个操作都改变了两条边,而且包含了任意改变两条边的操作。类似之前的讨论,我们发现,当我们改变的两条边都是与目标相同的时,从状态i变为$i-2$,此时改变的边共有$(N-i)(N-i-1)/2$种取法;当改变的两条边都是与目标不同时,状态从$i$变为$i+2$,共有$i(i-1)/2$种取法;当改变的两条边一条与目标相同,一条与目标不同时,状态不变,共有$i(N-i)$种取法。<br>综上,我们能得出转移矩阵满足:<br>$A[0][j]=0$,$A[i][i-1]=i$,$A[i][i+1]=N-k$,<br>$A[i][i-2]=i(i-1)/2$,$A[i][i+2]=(N-i)(N-i-1)/2$,$A[i][i]=i(N-i)$,其余均为 $0$ 。<br>得到转移矩阵以后,我们的目标就是计算$e11 * A^T$,即表示从初始状态经过$T$时刻后第一次变为目标的方法数,其中$e11$为只有状态$11$为$1$其余为$0$的行向量。这可以通过预处理矩阵快速幂算法得到。<br>由于有多组询问，需要预处理$A^{2^k}$，然后在处理询问时，根据$T$的二进制将$e11$乘以$A^{2^k}$。如果不做预处理，可能会超时。</p>
-
-          
+          Preface2018年北京大学acm校赛非正式意识流题解。
+SolutionA列出线性规划式子，转为对偶型。观察对偶型的线性规划式子，发现这是一个差分约束系统问题。于是就可以用最短路求解。因为该图的特殊性，这种做法的时间复杂度为$O(N)$事实上，我们可以证明，每一天要么花费$0$小时，要么花费$
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/28/pkucampus2018/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -790,18 +748,17 @@
       
         
           
-            <p>总的来说运气挺不错的，作为入选者中唯一一个没有任何 computer vision 背景，从零开始学习各种目标检测和滤波算法，有幸最后取得了 rank 2 的排名。<br>纵观这次长达一个月的比赛，总结一下自己比赛中显露出的自己的一些问题：</p>
-<ol>
-<li><p>没有及时把每天想到的 idea 记下来，进行 prioritize 再一一实现。<br>总是纠结于一些trivial的工作。（其实前期也有好好记录，到后面ddl一多就乱了阵脚）<br>后来知道冠军的做法中一个十分关键的 trick 当初也有想到过，可惜没有好好记下来后面就想不起来了。</p>
-</li>
-<li><p>数据分析熟练度欠佳，经验不足。<br>比如对噪声的处理，现实中遇到的数据的噪声存在太多难以解释的因素，<br>此时最好的办法还是使用可视化工具，观察数据的分布。<br>一些简单的clip操作，很多时候就能达到比那些听起来fancy的滤波器更理想的效果。</p>
-</li>
-<li><p>状态切换的能力欠佳，五一结束了还沉浸在假期的轻松心境中，期中季考完沉浸在对考题的缅怀感慨中。<br>而现在比赛结束了，明明即将迎来期末季与数不清的ddl的惨烈修罗场，<br>却又把大把的时间拿来思考人生。 假使我每次反复选中眼前的文本然后取消，对着屏幕出神时，能够怀有哪怕…哪怕一丁点的负罪感就好了。</p>
-</li>
-</ol>
-<p>也十分感激各位 marketing manager 多次帮我安排了与各组的负责人的 talk，<br>有幸和公司的几位联合创始人一起用餐，<br>一方面也使得我从旁观者的视角，低成本理解一家 start-up 的运转，为自己未来的创业计划积累经验。</p>
+          总的来说运气挺不错的，作为入选者中唯一一个没有任何 computer vision 背景，从零开始学习各种目标检测和滤波算法，有幸最后取得了 rank 2 的排名。纵观这次长达一个月的比赛，总结一下自己比赛中显露出的自己的一些问题：
 
-          
+没有及时把每天想到的 idea 记下来，进行 prioritiz
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/10/MCDC-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
