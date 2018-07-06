@@ -108,19 +108,19 @@
 
 
 
-  <meta name="description" content="Preface原本是受人所托，回来填坑。另一方面，也是想想这些事情，如果不赶紧记下来，将来就再也没办法找到了。这么一来，我这样恋旧的人大概会难过的吧。 ——不然鬼知道这个原本定位慵懒小清新（?..）轻松日常的Blog，怎么会笔锋一转，写起了令人胃痛的malloc lab…… 好啦好啦，接下来就开始正文吧 Introduction to Computer SystemsIntroduction to">
+  <meta name="description" content="Prefacemalloc lab 是 ICS 中具有挑战性的一个实验，笔者当时在 malloc lab 中取得了唯一的满分，下文简要阐述一些 malloc lab 的思路。  Preparation read through CS:APP Chapter 9 carefully and finish exercises  understand some concepts: implementat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to get full points on malloc lab">
 <meta property="og:url" content="http://yoursite.com/2016/12/28/How-to-get-full-points-on-malloc-lab/index.html">
 <meta property="og:site_name" content="Halbmond">
-<meta property="og:description" content="Preface原本是受人所托，回来填坑。另一方面，也是想想这些事情，如果不赶紧记下来，将来就再也没办法找到了。这么一来，我这样恋旧的人大概会难过的吧。 ——不然鬼知道这个原本定位慵懒小清新（?..）轻松日常的Blog，怎么会笔锋一转，写起了令人胃痛的malloc lab…… 好啦好啦，接下来就开始正文吧 Introduction to Computer SystemsIntroduction to">
+<meta property="og:description" content="Prefacemalloc lab 是 ICS 中具有挑战性的一个实验，笔者当时在 malloc lab 中取得了唯一的满分，下文简要阐述一些 malloc lab 的思路。  Preparation read through CS:APP Chapter 9 carefully and finish exercises  understand some concepts: implementat">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/images/How-to-get-full-points-on-malloc-lab/ics-malloc-lab-rank.png">
-<meta property="og:updated_time" content="2018-05-28T00:41:48.557Z">
+<meta property="og:image" content="http://yoursite.com/2016/12/28/images/How-to-get-full-points-on-malloc-lab/ics-malloc-lab-rank.png">
+<meta property="og:updated_time" content="2018-07-06T06:28:39.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to get full points on malloc lab">
-<meta name="twitter:description" content="Preface原本是受人所托，回来填坑。另一方面，也是想想这些事情，如果不赶紧记下来，将来就再也没办法找到了。这么一来，我这样恋旧的人大概会难过的吧。 ——不然鬼知道这个原本定位慵懒小清新（?..）轻松日常的Blog，怎么会笔锋一转，写起了令人胃痛的malloc lab…… 好啦好啦，接下来就开始正文吧 Introduction to Computer SystemsIntroduction to">
-<meta name="twitter:image" content="http://yoursite.com/images/How-to-get-full-points-on-malloc-lab/ics-malloc-lab-rank.png">
+<meta name="twitter:description" content="Prefacemalloc lab 是 ICS 中具有挑战性的一个实验，笔者当时在 malloc lab 中取得了唯一的满分，下文简要阐述一些 malloc lab 的思路。  Preparation read through CS:APP Chapter 9 carefully and finish exercises  understand some concepts: implementat">
+<meta name="twitter:image" content="http://yoursite.com/2016/12/28/images/How-to-get-full-points-on-malloc-lab/ics-malloc-lab-rank.png">
 
 
 
@@ -341,7 +341,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-05-28 08:41:48" itemprop="dateModified" datetime="2018-05-28T08:41:48+08:00">2018-05-28</time>
+                <time title="Modified: 2018-07-06 14:28:39" itemprop="dateModified" datetime="2018-07-06T14:28:39+08:00">2018-07-06</time>
               
             
           </span>
@@ -392,13 +392,8 @@
       
 
       
-        <h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><p>原本是受人所托，回来填坑。另一方面，也是想想这些事情，如果不赶紧记下来，将来就再也没办法找到了。这么一来，我这样恋旧的人大概会难过的吧。</p>
-<p>——不然鬼知道这个原本定位慵懒小清新（?..）轻松日常的Blog，怎么会笔锋一转，写起了令人胃痛的malloc lab……</p>
-<p>好啦好啦，接下来就开始正文吧</p>
-<h2 id="Introduction-to-Computer-Systems"><a href="#Introduction-to-Computer-Systems" class="headerlink" title="Introduction to Computer Systems"></a>Introduction to Computer Systems</h2><p><a href="http://www.cs.cmu.edu/~./213/schedule.html" target="_blank" rel="noopener">Introduction to Computer Systems(ICS)</a> 这门课最早由cmu创立。2012年，北大信息科学技术学院与卡耐基梅隆大学计算机科学学院联合对该课程进行升级，并正式引入国内。</p>
-<p>ICS 是北京大学信息科学技术学院的重点建设课程，课程由大班教学和小班研讨结合，并投入了大量师资。</p>
-<p>malloc lab 是 ICS 中最具有挑战性的一个实验，笔者当时在 malloc lab 中取得了唯一的满分，下文简要阐述一些 malloc lab 的思路。</p>
-<p><img src="/images/How-to-get-full-points-on-malloc-lab/ics-malloc-lab-rank.png" alt="Rank"></p>
+        <h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><p>malloc lab 是 ICS 中具有挑战性的一个实验，笔者当时在 malloc lab 中取得了唯一的满分，下文简要阐述一些 malloc lab 的思路。</p>
+<p><img src="../images/How-to-get-full-points-on-malloc-lab/ics-malloc-lab-rank.png" alt="Rank"></p>
 <h2 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h2><ul>
 <li><p>read through CS:APP Chapter 9 carefully and finish exercises</p>
 <ul>
@@ -479,21 +474,21 @@
 <h4 id="Linkedlist"><a href="#Linkedlist" class="headerlink" title="Linkedlist"></a>Linkedlist</h4><p>为了提高吞吐量，我们考虑用数组维护较小空闲块的链表头。</p>
 <p>每次产生空闲块时，若</p>
 <ul>
-<li>空闲块的size &lt;= LIMIT，我们直接在这个数组中查找这些链表头<ul>
+<li>空闲块的$size &lt;= LIMIT$，我们直接在这个数组中查找这些链表头<ul>
 <li>必定能找到相应的链表头，我们直接往这个节点的链表中插入这个空闲块</li>
 </ul>
 </li>
-<li>空闲块的size &gt; LIMIT，我们在平衡树中查找相应的链表头<ul>
-<li>如果平衡树中存在相应size的节点，就往这个节点的链表中插入这个空闲块</li>
-<li>如果平衡树中不存在相应size的节点，就往平衡树中插入这样的一个节点</li>
+<li>空闲块的$size &gt; LIMIT$，我们在平衡树中查找相应的链表头<ul>
+<li>如果平衡树中存在相应$size$的节点，就往这个节点的链表中插入这个空闲块</li>
+<li>如果平衡树中不存在相应$size$的节点，就往平衡树中插入这样的一个节点</li>
 </ul>
 </li>
 </ul>
 <h4 id="Fragment-Pool"><a href="#Fragment-Pool" class="headerlink" title="Fragment Pool"></a>Fragment Pool</h4><p>注意到trace 中的 exhaust.rep，boat.rep 等数据中，有大量小块的malloc, free操作，产生了大量无用的碎片。尤其是 8 bytes 的空闲块，一旦产生这样的碎片，除非coalesce，否则很难被再利用。</p>
 <p>针对这一点，我们可以在heap的最前面开一个这样的池，管理这些碎片。</p>
 <h2 id="Some-Tricks"><a href="#Some-Tricks" class="headerlink" title="Some Tricks"></a>Some Tricks</h2><h4 id="Trick-1"><a href="#Trick-1" class="headerlink" title="Trick 1"></a>Trick 1</h4><p>writeup中提到：堆的大小不会超过 $2^{32}$ 字节。</p>
-<p>尽管 x86-64 机器下指针的空间是 8 字节，但我们完全可以只记录4字节的偏移量完成寻址。</p>
-<h4 id="Trick-2"><a href="#Trick-2" class="headerlink" title="Trick 2"></a>Trick 2</h4><p>一个 thou 的瓶颈是系统调用。感谢当初sy2006菊苣提醒:）</p>
+<p>尽管 x86-64 机器下指针的空间是 8 bytes，但我们完全可以只记录4字节的偏移量完成寻址。</p>
+<h4 id="Trick-2"><a href="#Trick-2" class="headerlink" title="Trick 2"></a>Trick 2</h4><p>一个 thou 的瓶颈是系统调用。感谢当初sy菊苣提醒:）</p>
 <p>pku 服务器的主频非常低，提交到服务器上时系统调用简直慢到怀疑人生。</p>
 <ul>
 <li>一个优化：每次申请空间时，直接sbrk一大块，以减少系统调用次数。<ul>
@@ -618,7 +613,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -647,7 +642,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">categories</span>
                   
                 </div>
@@ -685,7 +682,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-to-Computer-Systems"><span class="nav-number">2.</span> <span class="nav-text">Introduction to Computer Systems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Preparation"><span class="nav-number">3.</span> <span class="nav-text">Preparation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Goal"><span class="nav-number">4.</span> <span class="nav-text">Goal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluation"><span class="nav-number">5.</span> <span class="nav-text">Evaluation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">6.</span> <span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Binary-Search-Tree"><span class="nav-number">6.0.1.</span> <span class="nav-text">Binary Search Tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linkedlist"><span class="nav-number">6.0.2.</span> <span class="nav-text">Linkedlist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fragment-Pool"><span class="nav-number">6.0.3.</span> <span class="nav-text">Fragment Pool</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Some-Tricks"><span class="nav-number">7.</span> <span class="nav-text">Some Tricks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Trick-1"><span class="nav-number">7.0.1.</span> <span class="nav-text">Trick 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Trick-2"><span class="nav-number">7.0.2.</span> <span class="nav-text">Trick 2</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Preparation"><span class="nav-number">2.</span> <span class="nav-text">Preparation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Goal"><span class="nav-number">3.</span> <span class="nav-text">Goal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluation"><span class="nav-number">4.</span> <span class="nav-text">Evaluation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">5.</span> <span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Binary-Search-Tree"><span class="nav-number">5.0.1.</span> <span class="nav-text">Binary Search Tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linkedlist"><span class="nav-number">5.0.2.</span> <span class="nav-text">Linkedlist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fragment-Pool"><span class="nav-number">5.0.3.</span> <span class="nav-text">Fragment Pool</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Some-Tricks"><span class="nav-number">6.</span> <span class="nav-text">Some Tricks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Trick-1"><span class="nav-number">6.0.1.</span> <span class="nav-text">Trick 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Trick-2"><span class="nav-number">6.0.2.</span> <span class="nav-text">Trick 2</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
