@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="Preface2018年北京大学acm校赛非正式意识流题解。 SolutionA列出线性规划式子，转为对偶型。观察对偶型的线性规划式子，发现这是一个差分约束系统问题。于是就可以用最短路求解。因为该图的特殊性，这种做法的时间复杂度为$O(N)$事实上，我们可以证明，每一天要么花费$0$小时，要么花费$7$小时，然后直接DP或贪心即可。 B设郭神的初始资金为$1$元，$f(i)$表示恰好在第$i$天卖">
+  <meta name="description" content="Preface2018年北京大学acm校赛圆满落幕！其中D, F是我出的题。 以下是校赛的非正式意识流题解。 SolutionA列出线性规划式子，转为对偶型。观察对偶型的线性规划式子，发现这是一个差分约束系统问题。于是就可以用最短路求解。因为该图的特殊性，这种做法的时间复杂度为$O(N)$事实上，我们可以证明，每一天要么花费$0$小时，要么花费$7$小时，然后直接DP或贪心即可。 B设郭神的初始资">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pku Campus 2018 Solution">
 <meta property="og:url" content="http://yoursite.com/2018/05/28/pkucampus2018/index.html">
 <meta property="og:site_name" content="Halbmond">
-<meta property="og:description" content="Preface2018年北京大学acm校赛非正式意识流题解。 SolutionA列出线性规划式子，转为对偶型。观察对偶型的线性规划式子，发现这是一个差分约束系统问题。于是就可以用最短路求解。因为该图的特殊性，这种做法的时间复杂度为$O(N)$事实上，我们可以证明，每一天要么花费$0$小时，要么花费$7$小时，然后直接DP或贪心即可。 B设郭神的初始资金为$1$元，$f(i)$表示恰好在第$i$天卖">
+<meta property="og:description" content="Preface2018年北京大学acm校赛圆满落幕！其中D, F是我出的题。 以下是校赛的非正式意识流题解。 SolutionA列出线性规划式子，转为对偶型。观察对偶型的线性规划式子，发现这是一个差分约束系统问题。于是就可以用最短路求解。因为该图的特殊性，这种做法的时间复杂度为$O(N)$事实上，我们可以证明，每一天要么花费$0$小时，要么花费$7$小时，然后直接DP或贪心即可。 B设郭神的初始资">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/images/pkucampus2018/pkucampus2018E.png">
-<meta property="og:updated_time" content="2018-07-07T15:36:22.982Z">
+<meta property="og:updated_time" content="2019-05-06T14:06:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pku Campus 2018 Solution">
-<meta name="twitter:description" content="Preface2018年北京大学acm校赛非正式意识流题解。 SolutionA列出线性规划式子，转为对偶型。观察对偶型的线性规划式子，发现这是一个差分约束系统问题。于是就可以用最短路求解。因为该图的特殊性，这种做法的时间复杂度为$O(N)$事实上，我们可以证明，每一天要么花费$0$小时，要么花费$7$小时，然后直接DP或贪心即可。 B设郭神的初始资金为$1$元，$f(i)$表示恰好在第$i$天卖">
+<meta name="twitter:description" content="Preface2018年北京大学acm校赛圆满落幕！其中D, F是我出的题。 以下是校赛的非正式意识流题解。 SolutionA列出线性规划式子，转为对偶型。观察对偶型的线性规划式子，发现这是一个差分约束系统问题。于是就可以用最短路求解。因为该图的特殊性，这种做法的时间复杂度为$O(N)$事实上，我们可以证明，每一天要么花费$0$小时，要么花费$7$小时，然后直接DP或贪心即可。 B设郭神的初始资">
 <meta name="twitter:image" content="http://yoursite.com/images/pkucampus2018/pkucampus2018E.png">
 
 
@@ -341,7 +341,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-07 23:36:22" itemprop="dateModified" datetime="2018-07-07T23:36:22+08:00">2018-07-07</time>
+                <time title="Modified: 2019-05-06 22:06:28" itemprop="dateModified" datetime="2019-05-06T22:06:28+08:00">2019-05-06</time>
               
             
           </span>
@@ -392,7 +392,8 @@
       
 
       
-        <h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><p>2018年北京大学acm校赛非正式意识流题解。</p>
+        <h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><p>2018年北京大学acm校赛圆满落幕！其中D, F是我出的题。</p>
+<p>以下是校赛的非正式意识流题解。</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h4 id="A"><a href="#A" class="headerlink" title="A"></a>A</h4><p>列出线性规划式子，转为对偶型。<br>观察对偶型的线性规划式子，发现这是一个差分约束系统问题。<br>于是就可以用最短路求解。因为该图的特殊性，这种做法的时间复杂度为$O(N)$<br>事实上，我们可以证明，每一天要么花费$0$小时，要么花费$7$小时，然后直接DP或贪心即可。</p>
 <h4 id="B"><a href="#B" class="headerlink" title="B"></a>B</h4><p>设郭神的初始资金为$1$元，$f(i)$表示恰好在第$i$天卖出时可获得资金的期望，$g(i)$表示恰好在第$i$天买入时所得份额数的期望。</p>
 <script type="math/tex; mode=display">f(0)=1</script><script type="math/tex; mode=display">g(i)=\sum_{j=0}^{i-1} \frac{1}{n-j} * f(j) * \frac{1}{V_i}</script><script type="math/tex; mode=display">f(i)=\sum_{j=1}^{i-1} \frac{1}{n-j} * g(j) * V_i * r_{i-j}</script><p>对所求式子进行变形，发现数列$\{g(i)V_i\}$为数列$\{\frac{f(i)}{n-i}\}$的前缀和，故$g(i)$可在常数时间求出。</p>
